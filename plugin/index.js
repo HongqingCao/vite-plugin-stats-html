@@ -4,25 +4,26 @@
  * @Autor: codercao
  * @Date: 2023-05-18 21:34:54
  * @LastEditors: codercao
- * @LastEditTime: 2023-05-21 22:22:37
+ * @LastEditTime: 2023-05-22 22:18:53
  */
 const fs = require("fs");
 const path = require("path");
 import { ModuleMapper } from "./mapper";
 import { buildTree } from "./buildTree";
 import { createHtml } from "./createHtml";
+
 function visualizer(options = {}) {
-  const outputFile = options.output || "stats.html";
-
   let startTime;
-
   return {
     name: "visualizer",
     buildStart() {
       startTime = Date.now();
     },
     async generateBundle(opts, outputBundle) {
-      const projectRoot = opts.projectRoot ?? process.cwd();
+      const outputFile = options.output || "stats.html";
+      const title = options.title ?? "Vite Plugin Status Html";
+      const projectRoot = options.projectRoot ?? process.cwd();
+
       const roots = [];
       const mapper = new ModuleMapper(projectRoot);
       const ModuleLengths = async ({ id, renderedLength, code }) => {
@@ -119,24 +120,14 @@ function visualizer(options = {}) {
           roots.push(tree);
         }
       }
-    //   const newTree = [
-    //     {
-    //       name: "root",
-    //       children: roots,
-    //       isRoot: true,
-    //     },
-    //   ];
-
-      const nodeParts = mapper.getNodeParts();
-      const nodeMetas = mapper.getNodeMetas();
-
       chunkCount = Object.keys(outputBundle).length;
 
       let outputBundlestats = {
         bundleObj: {
+          title,
           projectRoot: projectRoot,
-          startTime: startTime.toLocaleString(),
-          time: Date.now() - startTime,
+          time: (Date.now() - startTime) / 1000 + "s",
+          startTime: new Date().toLocaleString(),
           totalSize: Number(totalSize / 1000).toFixed(2),
           assetCount,
           chunkCount,
@@ -150,31 +141,8 @@ function visualizer(options = {}) {
         tableData,
         treeData: roots,
       };
-
       const chartScript = createHtml(outputBundlestats);
-      fs.writeFileSync(path.join("./dist", "outputBundle.html"), chartScript);
-      //   fs.writeFileSync(
-      //     path.join("./dist", "outputBundlestats.text"),
-      //     JSON.stringify(outputBundlestats)
-      //   );
-
-      //   fs.writeFileSync(
-      //     path.join("./dist", "outputBundle.text"),
-      //     JSON.stringify(outputBundle)
-      //   );
-      //   fs.writeFileSync(path.join("./dist", "outputBundle.html"), chartScript);
-        fs.writeFileSync(
-          path.join("./dist", "stats.text"),
-          JSON.stringify(roots)
-        );
-      //   fs.writeFileSync(
-      //     path.join("./dist", "nodeParts.text"),
-      //     JSON.stringify(nodeParts)
-      //   );
-      //   fs.writeFileSync(
-      //     path.join("./dist", "nodeMetas.text"),
-      //     JSON.stringify(nodeMetas)
-      //   );
+      await fs.writeFileSync(path.join("./", outputFile), chartScript);
     },
   };
 }
