@@ -114,10 +114,10 @@ body {
 <body>
 <div class="app" id="app">
 <div class="container">
-  <div class="header-wrap">vite-plugin-visualizer</div>
+  <div class="header-wrap">${allData.title}</div>
   <div class="bundle-info">
     <div>
-      <span class="bundle-info-title">project Name：</span
+      <span class="bundle-info-title">project URL：</span
       >{{ bundleObj.projectRoot }}
     </div>
     <div>
@@ -162,12 +162,12 @@ body {
       <div id="visualization" class="visualization"></div>
     </el-tab-pane>
     <el-tab-pane label="Assets Statistics">
-      <el-table :data="tableData" stripe style="width: 100%">
-        <el-table-column prop="file" label="file" width="500px">
+      <el-table :data="tableData" height="400" stripe style="width: 100%">
+        <el-table-column prop="file" sortable label="file" width="500px">
         </el-table-column>
-        <el-table-column prop="type" label="type"> </el-table-column>
-        <el-table-column prop="size" label="size"> </el-table-column>
-        <el-table-column prop="dependencyCount" label="dependencyCount">
+        <el-table-column prop="type" sortable label="type"> </el-table-column>
+        <el-table-column prop="size" sortable label="size(kb)"> </el-table-column>
+        <el-table-column prop="dependencyCount" sortable label="dependencyCount">
         </el-table-column>
       </el-table>
     </el-tab-pane>

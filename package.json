@@ -1,20 +1,7 @@
 {
   "name": "vite-plugin-stats-html",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
-  "files": [
-    "dist",
-    "index.d.ts"
-  ],
-  "main": "./dist/vite-plugin-stats-html.umd.cjs",
-  "module": "./dist/vite-plugin-stats-html.js",
-  "types": "./index.d.ts",
-  "exports": {
-    "types": "./index.d.ts",
-    "import": "./dist/vite-plugin-stats-html.js",
-    "require": "./dist/vite-plugin-stats-html.umd.cjs"
-  },
+  "version": "0.0.1",
+  "main": "./plugin/index.js",
   "scripts": {
     "dev": "vite",
     "build": "vite build"

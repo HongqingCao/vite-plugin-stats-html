@@ -4,7 +4,7 @@
  * @Autor: codercao
  * @Date: 2023-05-18 21:34:54
  * @LastEditors: codercao
- * @LastEditTime: 2023-05-22 22:18:53
+ * @LastEditTime: 2023-05-24 22:56:32
  */
 const fs = require("fs");
 const path = require("path");
@@ -50,15 +50,13 @@ function visualizer(options = {}) {
       let tableData = [];
       for (const [bundleId, bundle] of Object.entries(outputBundle)) {
         let type = path.extname(bundle.fileName).slice(1);
-        let size;
+        let size = bundle?.code?.length || bundle?.source?.length;
 
         switch (type) {
           case "js":
-            size = bundle.code.length;
             jsSize += size;
             break;
           case "css":
-            size = bundle.source.length;
             cssSize += size;
             break;
           case "jpg":
@@ -141,8 +139,32 @@ function visualizer(options = {}) {
         tableData,
         treeData: roots,
       };
+
       const chartScript = createHtml(outputBundlestats);
       await fs.writeFileSync(path.join("./", outputFile), chartScript);
+      //   fs.writeFileSync(
+      //     path.join("./dist", "outputBundlestats.text"),
+      //     JSON.stringify(outputBundlestats)
+      //   );
+
+      //   fs.writeFileSync(
+      //     path.join("./dist", "outputBundle.text"),
+      //     JSON.stringify(outputBundle)
+      //   );
+      //   fs.writeFileSync(path.join("./dist", "outputBundle.html"), chartScript);
+      //   await  fs.writeFileSync(
+      //     path.join("./dist", "stats.text"),
+      //     JSON.stringify(roots)
+      //   );
+
+      //   fs.writeFileSync(
+      //     path.join("./dist", "nodeParts.text"),
+      //     JSON.stringify(nodeParts)
+      //   );
+      //   fs.writeFileSync(
+      //     path.join("./dist", "nodeMetas.text"),
+      //     JSON.stringify(nodeMetas)
+      //   );
     },
   };
 }
