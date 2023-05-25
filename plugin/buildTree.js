@@ -49,7 +49,7 @@ const mergeSingleChildTrees = (tree) => {
   }
 };
 
-const buildTree = (bundleId, modules, mapper) => {
+export  const buildTree = (bundleId, modules, mapper) => {
   const tree = {
     name: bundleId,
     children: [],
@@ -80,60 +80,3 @@ const buildTree = (bundleId, modules, mapper) => {
   return tree;
 };
 
-const mergeTrees = (trees) => {
-  const newTree = {
-    name: "root",
-    children: trees,
-    isRoot: true,
-  };
-
-  return newTree;
-};
-
-const addLinks = (startModuleId, getModuleInfo, mapper) => {
-  const processedNodes = {};
-
-  const moduleIds = [startModuleId];
-
-  while (moduleIds.length > 0) {
-    const moduleId = moduleIds.shift();
-
-    if (processedNodes[moduleId]) {
-      continue;
-    } else {
-      processedNodes[moduleId] = true;
-    }
-
-    const moduleInfo = getModuleInfo(moduleId);
-
-    if (!moduleInfo) {
-      return;
-    }
-
-    if (moduleInfo.isEntry) {
-      mapper.setNodeMeta(moduleId, { isEntry: true });
-    }
-    if (moduleInfo.isExternal) {
-      mapper.setNodeMeta(moduleId, { isExternal: true });
-    }
-
-    for (const importedId of moduleInfo.importedIds) {
-      mapper.addImportedByLink(importedId, moduleId);
-      mapper.addImportedLink(moduleId, importedId);
-
-      moduleIds.push(importedId);
-    }
-    for (const importedId of moduleInfo.dynamicallyImportedIds || []) {
-      mapper.addImportedByLink(importedId, moduleId);
-      mapper.addImportedLink(moduleId, importedId, true);
-
-      moduleIds.push(importedId);
-    }
-  }
-};
-
-module.exports = {
-  buildTree,
-  mergeTrees,
-  addLinks,
-};

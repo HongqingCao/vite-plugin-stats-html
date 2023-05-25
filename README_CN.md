@@ -1,11 +1,3 @@
-<!--
- * @Description:
- * @Version: 1.0
- * @Autor: codercao
- * @Date: 2023-05-22 21:54:52
- * @LastEditors: codercao
- * @LastEditTime: 2023-05-22 22:42:48
--->
 
 # Vite Plugin Status Html
 
@@ -21,7 +13,7 @@ README | [EN README](README.md)
 
 ## 截图
 
-![pic](https://github.com/HongqingCao/vite-plugin-stats-html/blob/main/pics/vite.png?raw=true)
+![pic](https://github.com/HongqingCao/vite-plugin-stats-html/blob/main/pics/vite.gif)
 
 ## Installation
 

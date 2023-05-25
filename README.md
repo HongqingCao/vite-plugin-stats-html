@@ -11,7 +11,7 @@ It will give you the following packaging information:
  
 ## Screenshots
 
-![pic](https://github.com/HongqingCao/vite-plugin-stats-html/blob/main/pics/vite.png?raw=true)
+![pic](https://github.com/HongqingCao/vite-plugin-stats-html/blob/main/pics/vite.gif)
 
 ## Installation
 

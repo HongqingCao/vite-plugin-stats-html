@@ -4,7 +4,7 @@
  * @Autor: codercao
  * @Date: 2023-05-18 21:34:54
  * @LastEditors: codercao
- * @LastEditTime: 2023-05-22 22:18:53
+ * @LastEditTime: 2023-05-25 11:13:22
  */
 const fs = require("fs");
 const path = require("path");
@@ -51,14 +51,12 @@ function visualizer(options = {}) {
       for (const [bundleId, bundle] of Object.entries(outputBundle)) {
         let type = path.extname(bundle.fileName).slice(1);
         let size;
-
+        size = bundle?.code?.length || bundle?.source?.length;
         switch (type) {
           case "js":
-            size = bundle.code.length;
             jsSize += size;
             break;
           case "css":
-            size = bundle.source.length;
             cssSize += size;
             break;
           case "jpg":
@@ -147,4 +145,5 @@ function visualizer(options = {}) {
   };
 }
 
-module.exports = visualizer;
+exports.visualizer = visualizer;
+exports.default = exports.visualizer;
