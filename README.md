@@ -1,7 +1,9 @@
 
 # Vite Plugin Status Html
-一个Vite（rollup）打包产物分析报告工具，多个角度展示打包产物的细节信息，从资源文件信息到第三方依赖等等。希望这些信息能在您性能优化过程中起到参考作用~
-README | [EN README](README_EN.md)
+README | [EN README](README_EN.md)  
+
+一个Vite（rollup）打包产物分析报告工具，多个角度展示打包产物的细节信息，从资源文件信息到第三方依赖等等。希望这些信息能在您性能优化过程中起到参考作用~   
+
 
 通过它,你将获得下面打包信息：
 

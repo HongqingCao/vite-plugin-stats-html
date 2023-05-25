@@ -1,9 +1,9 @@
 
 # Vite Plugin Status Html
-A Vite (rollup) packaging analysis reporting tool that shows details of the packaging from multiple perspectives, from resource file information to third party dependencies. I hope this information can serve as a reference in your performance optimization process~
+README | [中文 README](README.md)  
 
-README | [中文 README](README.md)
-
+A Vite (rollup) packaging analysis reporting tool that shows details of the packaging from multiple perspectives, from resource file information to third party dependencies. I hope this information can serve as a reference in your performance optimization process~  
+ 
 
 It will give you the following packaging information:
 - Project path, total packaging time, packaging date
