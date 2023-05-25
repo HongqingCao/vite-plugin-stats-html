@@ -1,4 +1,4 @@
-const createHtml = (allData) => {
+export const createHtml = (allData) => {
   const chartScript = `
 <!DOCTYPE html>
 <html>
@@ -357,8 +357,4 @@ var app = new Vue({
   `;
 
   return chartScript;
-};
-
-module.exports = {
-  createHtml,
 };

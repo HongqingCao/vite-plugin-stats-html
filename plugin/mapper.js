@@ -1,13 +1,13 @@
 // 导入相关类型和函数
 const getUid = (alphabit, size) => () => {
-    let result = "";
-    for (let i = 0; i < size; i++) {
-      result += alphabit[(Math.random() * alphabit.length) | 0];
-    }
-    return result;
-  };
+  let result = "";
+  for (let i = 0; i < size; i++) {
+    result += alphabit[(Math.random() * alphabit.length) | 0];
+  }
+  return result;
+};
 // 生成唯一前缀
-const nanoid = getUid("1234567890abcdef", 4);
+const nanoid = getUid("codercao1234", 4);
 const UNIQUE_PREFIX = nanoid();
 let COUNTER = 0;
 
@@ -31,7 +31,7 @@ const uniqueId = () => `${UNIQUE_PREFIX}-${COUNTER++}`;
 // 同时需要将 Set 中的字符串类型转换为对象类型
 // 以便在生成模块依赖图时能够正确处理
 // 导出 ModuleMapper 类
-module.exports.ModuleMapper = class ModuleMapper {
+export const ModuleMapper = class ModuleMapper {
   // 定义节点部分和节点元数据
   // 节点部分以模块的 UID 为键，存储模块部分的长度信息
   // 节点元数据以模块的 ID 为键，存储模块的 UID 和元数据
@@ -44,7 +44,10 @@ module.exports.ModuleMapper = class ModuleMapper {
 
   // 去除模块 ID 中的项目根路径前缀
   trimProjectRootId(moduleId) {
-    if (typeof this.projectRoot === "string" && moduleId.startsWith(this.projectRoot)) {
+    if (
+      typeof this.projectRoot === "string" &&
+      moduleId.startsWith(this.projectRoot)
+    ) {
       return moduleId.slice(this.projectRoot.length);
     }
     return moduleId.replace(this.projectRoot, "");
@@ -114,7 +117,9 @@ module.exports.ModuleMapper = class ModuleMapper {
     if (!(bundleId in this.nodeMetas[moduleId].meta.moduleParts)) {
       return false;
     }
-    if (!(this.nodeMetas[moduleId].meta.moduleParts[bundleId] in this.nodeParts)) {
+    if (
+      !(this.nodeMetas[moduleId].meta.moduleParts[bundleId] in this.nodeParts)
+    ) {
       return false;
     }
     return true;
