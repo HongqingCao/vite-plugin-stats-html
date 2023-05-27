@@ -15,7 +15,7 @@ README | [EN README](README_EN.md)
 
 ## 示例
 
-![11.gif](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/848c09ab19684f1985dccc2df58e6990~tplv-k3u1fbpfcp-watermark.image?)
+![Vite Plugin Status Html](https://github.com/HongqingCao/vite-plugin-stats-html/blob/main/pics/vite.gif)
 
 ## Installation
 

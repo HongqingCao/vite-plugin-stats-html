@@ -4,7 +4,7 @@
  * @Autor: codercao
  * @Date: 2023-05-25 20:26:13
  * @LastEditors: codercao
- * @LastEditTime: 2023-05-27 10:32:45
+ * @LastEditTime: 2023-05-27 10:38:23
 -->
 
 # Vite Plugin Status Html
@@ -22,7 +22,7 @@ It will give you the following packaging information:
  
 ## Screenshots
 
-![11.gif](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/848c09ab19684f1985dccc2df58e6990~tplv-k3u1fbpfcp-watermark.image?)
+![Vite Plugin Status Html](https://github.com/HongqingCao/vite-plugin-stats-html/blob/main/pics/vite.gif)
 
 ## Installation
 
