@@ -1,14 +1,25 @@
 {
   "name": "vite-plugin-stats-html",
-  "version": "1.0.0",
+  "version": "1.0.8",
   "type": "module",
-  "main": "./dist/vite-plugin-stats-html.js",
-  "module": "./dist/vite-plugin-stats-html.umd.cjs",
-  "types": "./index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/vite-plugin-stats-html.cjs",
+  "module": "./dist/vite-plugin-stats-html.js",
   "exports": {
-    "types": "./index.d.ts",
-    "import": "./dist/vite-plugin-stats-html.js",
-    "require": "./dist/vite-plugin-stats-html.umd.cjs"
+    ".": {
+      "import": "./dist/vite-plugin-stats-html.js",
+      "require": "./dist/vite-plugin-stats-html.cjs"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:HongqingCao/vite-plugin-stats-html.git"
+  },
+  "homepage": "https://github.com/HongqingCao/vite-plugin-stats-html",
+  "bugs": {
+    "url": "https://github.com/HongqingCao/vite-plugin-stats-html/issues"
   },
   "scripts": {
     "dev": "vite",
@@ -16,9 +27,5 @@
   },
   "devDependencies": {
     "vite": "^4.0.4"
-  },
-  "dependencies": {
-    "cheerio": "^1.0.0-rc.12",
-    "open": "^9.1.0"
   }
 }

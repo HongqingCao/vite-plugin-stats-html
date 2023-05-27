@@ -4,7 +4,7 @@
  * @Autor: codercao
  * @Date: 2023-05-18 21:34:54
  * @LastEditors: codercao
- * @LastEditTime: 2023-05-25 11:13:22
+ * @LastEditTime: 2023-05-25 22:47:07
  */
 const fs = require("fs");
 const path = require("path");
@@ -12,7 +12,7 @@ import { ModuleMapper } from "./mapper";
 import { buildTree } from "./buildTree";
 import { createHtml } from "./createHtml";
 
-function visualizer(options = {}) {
+const visualizer = (options = {}) => {
   let startTime;
   return {
     name: "visualizer",
@@ -144,6 +144,6 @@ function visualizer(options = {}) {
     },
   };
 }
-
+module.exports = visualizer;
 exports.visualizer = visualizer;
 exports.default = exports.visualizer;

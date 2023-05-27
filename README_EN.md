@@ -1,3 +1,11 @@
+<!--
+ * @Description: 
+ * @Version: 1.0
+ * @Autor: codercao
+ * @Date: 2023-05-25 20:26:13
+ * @LastEditors: codercao
+ * @LastEditTime: 2023-05-27 10:32:45
+-->
 
 # Vite Plugin Status Html
 README | [中文 README](README.md)  
@@ -14,7 +22,7 @@ It will give you the following packaging information:
  
 ## Screenshots
 
-![pic](https://github.com/HongqingCao/vite-plugin-stats-html/blob/main/pics/vite.gif)
+![11.gif](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/848c09ab19684f1985dccc2df58e6990~tplv-k3u1fbpfcp-watermark.image?)
 
 ## Installation
 
@@ -34,10 +42,10 @@ Import
 
 ```javascript
 // es
-import { visualizer } from "vite-plugin-stats-html";
+import  stats  from "vite-plugin-stats-html";
 // or
 // cjs
-const { visualizer } = require("vite-plugin-stats-html");
+const stats = require("vite-plugin-stats-html");
 ```
 
 Usage with rollup (rollup.config.js)
@@ -46,7 +54,7 @@ Usage with rollup (rollup.config.js)
 module.exports = {
   plugins: [
     // put it the last one
-    visualizer(),
+    stats(),
   ],
 };
 ```
@@ -55,17 +63,17 @@ Usage with vite (vite.config.js)
 
 ```js
 module.exports = {
-  plugins: [visualizer()],
+  plugins: [stats()],
 };
 ```
 
 Usage with vite TypeScript (vite.config.ts)
 
 ```ts
-import { defineConfig, type PluginOption } from 'vite'
+import { defineConfig, type PluginOption } from "vite";
 export default defineConfig({
-  plugins: [visualizer() as PluginOption],
-})
+  plugins: [stats() as PluginOption],
+});
 ```
 
 Usage with SvelteKit (vite.config.js)
@@ -73,7 +81,7 @@ Usage with SvelteKit (vite.config.js)
 ```js
 const config = {
   plugins: [
-    visualizer({
+    stats({
       filename: "stats.html",
     }),
   ],

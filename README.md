@@ -13,9 +13,9 @@ README | [EN README](README_EN.md)
 - 同时我们也提供了类似 WebpackBundleAnalyzer/ rollup-plugin-visualizer 的工具，可以帮助我们更好的了解产物内容，可视化的依赖的引用关系
 - 表格展示打包的出的文件，包含文件类型，文件大小，里面引用第三方依赖数量
 
-## 截图
+## 示例
 
-![pic](https://github.com/HongqingCao/vite-plugin-stats-html/blob/main/pics/vite.gif)
+![11.gif](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/848c09ab19684f1985dccc2df58e6990~tplv-k3u1fbpfcp-watermark.image?)
 
 ## Installation
 
@@ -35,10 +35,10 @@ Import
 
 ```javascript
 // es
-import { visualizer } from "vite-plugin-stats-html";
+import  stats  from "vite-plugin-stats-html";
 // or
 // cjs
-const { visualizer } = require("vite-plugin-stats-html");
+const stats = require("vite-plugin-stats-html");
 ```
 
 Usage with rollup (rollup.config.js)
@@ -47,7 +47,7 @@ Usage with rollup (rollup.config.js)
 module.exports = {
   plugins: [
     // put it the last one
-    visualizer(),
+    stats(),
   ],
 };
 ```
@@ -56,7 +56,7 @@ Usage with vite (vite.config.js)
 
 ```js
 module.exports = {
-  plugins: [visualizer()],
+  plugins: [stats()],
 };
 ```
 
@@ -65,7 +65,7 @@ Usage with vite TypeScript (vite.config.ts)
 ```ts
 import { defineConfig, type PluginOption } from "vite";
 export default defineConfig({
-  plugins: [visualizer() as PluginOption],
+  plugins: [stats() as PluginOption],
 });
 ```
 
@@ -74,7 +74,7 @@ Usage with SvelteKit (vite.config.js)
 ```js
 const config = {
   plugins: [
-    visualizer({
+    stats({
       filename: "stats.html",
     }),
   ],
